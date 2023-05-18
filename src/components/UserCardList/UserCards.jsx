@@ -1,13 +1,11 @@
 import UserCardItem from "../userCardItem/userCardItem";
 
-
-
 const UserCardList = () => {
-  
-
   return (
     <>
-    <UserCardItem/>      
+      <ul>
+        <UserCardItem />
+      </ul>
     </>
   );
 };

@@ -1,7 +1,7 @@
 @import './styles/common.css';
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -13,7 +13,17 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; */
+
+
+  /* colors */
+  --primery-color: green;
+  --primery-background-img: linear-gradient(
+    to bottom,
+    #471CA9 100%,
+    #5736A3 100%,
+    #4B2A99 100%
+  ); 
 }
 
 a {
@@ -31,6 +41,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  
 }
 
 h1 {
