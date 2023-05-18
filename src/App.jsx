@@ -1,33 +1,30 @@
-import { useState } from 'react'
+
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import UserCardList from "./components/userCardList/userCards";
+import HomePage from "./pages/HomePage/HomePage";
 
 
-
-function App() {
-  const [count, setCount] = useState(0)
-  
-  const startFollowers = `${100500+count}`.split("")
-  startFollowers.splice(-3, 0, ",")
-
-  const numberFollowers = (startFollowers.join(""))
-  
+function App() {  
 
   return (
     <>
-      {<h2>{numberFollowers} FOLLOWERS</h2>}
-      <button onClick={() => setCount((count) => count + 1)}>
-          FOLLOW
-        </button>
+  <Routes>
+    <Route path="/" element={<UserCardList/>}/>
+    <Route path="/home" element={<HomePage/>}/>
+
+  </Routes>
+      
     </>
-  )
+  );
 }
 
-export default App
+export default App;
 
-
-{/* <div>
+{
+  /* <div>
         <Link></Link>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -47,4 +44,5 @@ export default App
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p> */}
+      </p> */
+}
