@@ -1,0 +1,59 @@
+.user-card {
+  background-image: var(--primery-background-img);
+  width: 380px;
+  height: 460px;
+  border-radius: 10px;
+}
+
+.logoGO {
+  height: 22px;
+  width: 76px;
+  fill: none;
+}
+
+.thumb {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  // background-image: url(../../images/Ellipse1.png);
+  // background-position: center;
+  // background-size: 80px 80px;
+  position: absolute;
+  width: 62px;
+  height: 62px;
+  top: 12%;
+  right: 42%;
+}
+
+.text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24.38px;
+  color: var(--primery-text-color);
+}
+
+.button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21.94px;
+
+  color: var(--secondary-text-color);
+  background-color: var(--primery-text-color);
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  border-radius: 10.3108px;
+
+  width: 196px;
+  height: 50px;
+
+  padding: 14px 28px;
+
+  &.active {
+    background-color: var(--active-button);
+  }
+}
