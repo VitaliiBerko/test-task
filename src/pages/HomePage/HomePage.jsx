@@ -1,11 +1,14 @@
+import { Link, useLocation} from "react-router-dom"
 
 
 const HomePage=()=>{
 
+    const location = useLocation();
+    
     return (
         <>
         <h1>Home page</h1>
-        <button>Back</button>
+        <Link to= {location?.state?.from  ?? "/"}>Back</Link> 
         </>
     )
 }

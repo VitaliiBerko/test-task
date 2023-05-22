@@ -4,6 +4,8 @@ import logo from "../../images/Logo.svg";
 import picture from "../../images/picture@1.png";
 import avatar from "../../images/Hansel.png";
 import ellips from "../../images/Ellipse1.png";
+import rectangl from "../../images/Rectangle 1.png"
+import { Link, useLocation } from "react-router-dom";
 
 const UserCardItem = () => {
   const [count, setCount] = useState(0);
@@ -13,6 +15,7 @@ const UserCardItem = () => {
   const startFollowers = `${100500 + count}`.split("");
   startFollowers.splice(-3, 0, ",");
   const numberFollowers = startFollowers.join("");
+  const location = useLocation();
 
   const handleOnClick = () => {
     setIsActive(!isActive);
@@ -30,16 +33,17 @@ const UserCardItem = () => {
 
   return (
     <li className="user-card">
-      <img src={logo} alt="Logo" className="logoGO" />
-      <img src={picture} alt="Ideas" width="308px" height="168px" />
+      <Link to="/home" state={{from: location}}><img src={logo} alt="Logo" className="logoGO" /></Link>
+      <img src={picture} alt="Ideas" width="308px" height="168px" className="picture" />
       <div className="thumb">
-        <img src={ellips} alt="Ellips" />
+        <img src={rectangl} alt="Rectangle" className="rectangle" />
+        <img src={ellips} alt="Ellips" className="ellips"/>
         <img src={avatar} alt="User avatar" className="avatar" />
       </div>
 
       <ul>
-        <li className="text">777 TWEETS</li>
-        <li className="text">{numberFollowers} FOLLOWERS</li>
+        <li className="text mrBtn16">777 TWEETS</li>
+        <li className="text mrBtn26">{numberFollowers} FOLLOWERS</li>
 
         <button onClick={handleOnClick} id="follow-button" className="button">
           {text}

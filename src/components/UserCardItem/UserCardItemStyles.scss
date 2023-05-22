@@ -1,14 +1,26 @@
 .user-card {
+  position: relative;
   background-image: var(--primery-background-img);
   width: 380px;
   height: 460px;
   border-radius: 10px;
+  padding-top: 28px;
+
 }
 
 .logoGO {
   height: 22px;
   width: 76px;
-  fill: none;
+  fill: none;   
+  
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+}
+.picture {
+  
+  margin-left: 36px;
 }
 
 .thumb {
@@ -16,6 +28,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 80px;
+  margin-top: -18px;
+  margin-bottom: 26px;
 }
 
 .avatar {
@@ -27,6 +42,20 @@
   height: 62px;
   top: 12%;
   right: 42%;
+  background-color: #471CA9;
+  border-radius: 50%;
+  border: none;
+}
+
+// .rectangle {
+//   position: absolute;
+//   top: 0;
+//   right: 100%;
+// }
+.ellips {
+  position: absolute;
+  top: 0;
+  right: 38.5%;
 }
 
 .text {
@@ -34,7 +63,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 24.38px;
-  color: var(--primery-text-color);
+  color: var(--primery-text-color);  
 }
 
 .button {
@@ -51,9 +80,17 @@
   width: 196px;
   height: 50px;
 
+  
   padding: 14px 28px;
 
   &.active {
     background-color: var(--active-button);
   }
+}
+
+.mrBtn16 {
+  margin-bottom: 16px;
+}
+.mrBtn26 {
+  margin-bottom: 26px;
 }
