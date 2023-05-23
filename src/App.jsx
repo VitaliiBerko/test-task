@@ -5,10 +5,15 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import UserCardList from "./components/userCardList/userCards";
 import HomePage from "./pages/HomePage/HomePage";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchUsers } from "./redux/operations";
 
 
-function App() {  
+function App() {
+  const dispatch = useDispatch();  
 
+  useEffect(()=>{dispatch(fetchUsers())}, [dispatch]);
   return (
     <>
   <Routes>
