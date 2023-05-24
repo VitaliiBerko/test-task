@@ -8,29 +8,29 @@ import ellips from "../../images/Ellipse1.png";
 import rectangl from "../../images/Rectangle 1.png";
 import { Link, useLocation } from "react-router-dom";
 
-const UserCardItem = ({ user }) => {
-  console.log(user);
-  const { avatar, tweets } = user;
-  console.log(avatar);
-  const [count, setCount] = useState(0);
-  const [text, setText] = useState("FOLLOW");
-  const [isActive, setIsActive] = useState(false);
 
-  const startFollowers = `${10500 + count}`.split("");
-  startFollowers.splice(-3, 0, ",");
-  const numberFollowers = startFollowers.join("");
+const UserCardItem = ({ user }) => {
+  // console.log(user);
+  const { avatar, tweets, followers } = user; 
+  console.log(user); 
+  // const [count, setCount] = useState(0);
+  const [text, setText] = useState("FOLLOW");
+  const [isFollowing, setIsFolowing] = useState(false);
+  
+  console.log(followers);   
+
   const location = useLocation();
 
-  const handleOnClick = (event) => {
-    console.log(event.target);
-    setIsActive(!isActive);
+  const handleOnFollow = () => {  
+     
+    setIsFolowing(!isFollowing);
 
-    if (!isActive) {
-      setCount(count + 1);
+    if (isFollowing) {
+      followers + 1;
       setText("FOLLOWING");
       event.target.classList.add("active");
     } else {
-      setCount(count - 1);
+      followers - 1;
       setText("FOLLOW");
       event.target.classList.remove("active");
     }
@@ -56,9 +56,9 @@ const UserCardItem = ({ user }) => {
 
       <ul>
         <li className="text mrBtn16">{tweets} TWEETS</li>
-        <li className="text mrBtn26">{numberFollowers} FOLLOWERS</li>
+        <li className="text mrBtn26">{followers.toLocaleString("en-US")} FOLLOWERS</li>
 
-        <button onClick={() => handleOnClick(event)} className="button">
+        <button onClick={handleOnFollow} className="button">
           {text}
         </button>
       </ul>
@@ -71,6 +71,7 @@ UserCardItem.propTypes = {
     {
       avatar: PropTypes.string.isRequired,
       tweets: PropTypes.number.isRequired,
+      followers: PropTypes.number.isRequired
      }
   ).isRequired  
 };
