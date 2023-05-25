@@ -2,11 +2,9 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import "./UserCardItemStyles.scss";
 import logo from "../../images/Logo.svg";
-import picture from "../../images/picture@1.png";
 import avatarImg from "../../images/Hansel.png";
-import ellips from "../../images/Ellipse1.png";
-import rectangl from "../../images/Rectangle 1.png";
-import { Link, useLocation } from "react-router-dom";
+
+
 
 
 const UserCardItem = ({ user }) => {
@@ -19,8 +17,7 @@ const UserCardItem = ({ user }) => {
   
   console.log(followers);   
 
-  const location = useLocation();
-
+  
   const handleOnFollow = () => {  
      
     setIsFolowing(!isFollowing);
@@ -38,23 +35,13 @@ const UserCardItem = ({ user }) => {
 
   return (
     <li className="user-card">
-      <Link to="/home" state={{ from: location }}>
-        <img src={logo} alt="Logo" className="logoGO" />
-      </Link>
-      <img
-        src={picture}
-        alt="Ideas"
-        width="308px"
-        height="168px"
-        className="picture"
-      />
-      <div className="thumb">
-        <img src={rectangl} alt="Rectangle" className="rectangle" />
-        <img src={ellips} alt="Ellips" className="ellips" />
+      
+        <img src={logo} alt="Logo" className="logoGO" />      
+      
         <img src={avatar || avatarImg} alt="User avatar" className="avatar" />
-      </div>
+      
 
-      <ul>
+      <ul className="description">
         <li className="text mrBtn16">{tweets} TWEETS</li>
         <li className="text mrBtn26">{followers.toLocaleString("en-US")} FOLLOWERS</li>
 
