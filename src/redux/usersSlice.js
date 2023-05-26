@@ -3,40 +3,45 @@ import { fetchUsers } from "./operations";
 import Notiflix from "notiflix";
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage";
+import { userInitState } from "./user.init-state";
+import { STATUS } from "../constans/status";
+// import { FILTER } from "../constans/filter.constans";
 
 const usersSlice = createSlice({
   name: "users",
-  initialState: {
-    items: [],
-    isLoading: false,
-    error: null,
-  },
+  initialState: userInitState,    
 
   extraReducers: (builder) => {
     builder
       .addCase(fetchUsers.pending, (state) => {
-        state.isLoading = true;
+        state.status = STATUS.loading
       })
       .addCase(fetchUsers.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = null;
-        state.items = payload;
+        state.status= STATUS.success;
+        state.users = payload;
       })
       .addCase(fetchUsers.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
+        state.status = STATUS.error;
         Notiflix.Notify.failure(payload);
       });
   },
 
   reducers: {
-    toggleFollowingAction(state, { payload }) {
-      for (const user of state.items) {
-        if (user.id === payload) {
-          user.isFolowing = !user.isFolowing;
-          break;
-        }
+    setFollowersCountAction (state, {payload}) {
+
+      
+      
+
+    },
+    setToggleFollowingAction(state, { payload }) {
+      // console.log(payload);
+      const {userId, isFollowing }= payload;
+
+      state.followingStatus = {
+        ...state.followingStatus, 
+        [userId]: isFollowing
       }
+        console.log(state.followingStatus);    
     },
   },
 });
@@ -47,6 +52,6 @@ const persistConfig = {
   whitelist: ["items"],
 };
 
-// const {toggleFollowingAction} = usersSlice.actions;
+export const {setFollowersCountAction, setToggleFollowingAction} = usersSlice.actions;
 
 export const usersReducer = persistReducer(persistConfig, usersSlice.reducer);

@@ -9,9 +9,15 @@ import {
     PURGE,
     REGISTER,
   } from 'redux-persist';
+import { userInitState } from "./user.init-state";
+
+const initState = {
+  users: userInitState
+}
 
 
 export const store = configureStore({
+  preloadedState: initState,
     reducer: {
         users: usersReducer,
         // filter: filterReducer,

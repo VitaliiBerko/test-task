@@ -3,34 +3,39 @@ import PropTypes from "prop-types";
 import "./UserCardItemStyles.scss";
 import logo from "../../images/Logo.svg";
 import avatarImg from "../../images/Hansel.png";
+import { useDispatch } from "react-redux";
+import { setFollowersCountAction, setToggleFollowingAction } from "../../redux/usersSlice";
 
 
 
 
 const UserCardItem = ({ user }) => {
-  // console.log(user);
+  const dispatch = useDispatch();
   const { avatar, tweets, followers } = user; 
-  console.log(user); 
+  
   // const [count, setCount] = useState(0);
   const [text, setText] = useState("FOLLOW");
   const [isFollowing, setIsFolowing] = useState(false);
   
-  console.log(followers);   
+  // console.log(followers);   
 
   
-  const handleOnFollow = () => {  
+  const handleOnFollow = () => {     
+    
+    dispatch(setToggleFollowingAction({userId: user.id, isFollowing: !isFollowing}))
+    
      
-    setIsFolowing(!isFollowing);
+    // setIsFolowing(!isFollowing);
 
-    if (isFollowing) {
-      followers + 1;
-      setText("FOLLOWING");
-      event.target.classList.add("active");
-    } else {
-      followers - 1;
-      setText("FOLLOW");
-      event.target.classList.remove("active");
-    }
+    // if (isFollowing) {
+    //   followers + 1;
+    //   setText("FOLLOWING");
+    //   event.target.classList.add("active");
+    // } else {
+    //   followers - 1;
+    //   setText("FOLLOW");
+    //   event.target.classList.remove("active");
+    // }
   };
 
   return (
@@ -58,7 +63,8 @@ UserCardItem.propTypes = {
     {
       avatar: PropTypes.string.isRequired,
       tweets: PropTypes.number.isRequired,
-      followers: PropTypes.number.isRequired
+      followers: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired
      }
   ).isRequired  
 };
