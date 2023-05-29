@@ -49,7 +49,7 @@ const usersSlice = createSlice({
 const persistConfig = {
   key: "users",
   storage,
-  whitelist: ["items"],
+  whitelist: ['users', 'followingStatus', 'followersCount'],
 };
 
 export const {setFollowersCountAction, setToggleFollowingAction} = usersSlice.actions;
