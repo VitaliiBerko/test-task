@@ -1,3 +1,4 @@
 export const selectUsers = state=>state.users.users;
-export const selectIsLoading = state=>state.users.isLoading;
-export const selectError = state=>state.users.error;
+export const selectFilter = state=>state.users.filter;
+export const selectStatus = state=> state.users.status;
+export const selectFollowingStatud = state=>state.users.followingStatus;

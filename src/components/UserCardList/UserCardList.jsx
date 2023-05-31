@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import UserCardItem from "../userCardItem/userCardItem";
+import UserCardItem from '../UserCardItem/UserCardItem'
 import { selectUsers } from "../../redux/usersSelector";
 import { useEffect, useState } from "react";
 import { fetchUsers } from "../../redux/operations";
@@ -10,7 +10,8 @@ import { LIMIT_PER_PAGE } from "../../constans/operation.constans";
 export const UserCardList = () => {
   const [page]= useState(1);
   const users = useSelector(selectUsers);
-  const dispatch = useDispatch();  
+  const dispatch = useDispatch(); 
+
 
   useEffect(() => {
     dispatch(fetchUsers({page, limit: LIMIT_PER_PAGE}));
@@ -36,7 +37,7 @@ export const UserCardList = () => {
       </div>
 
       <ul className="user-cards">
-        {users.map((user) => (
+        {users?.map((user) => (
           <UserCardItem key={user.id} user={user} />
         ))}
       </ul>

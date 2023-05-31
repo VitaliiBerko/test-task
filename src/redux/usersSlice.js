@@ -9,7 +9,27 @@ import { STATUS } from "../constans/status";
 
 const usersSlice = createSlice({
   name: "users",
-  initialState: userInitState,    
+  initialState: userInitState, 
+  
+  reducers: {
+    setFollowersCountAction (state, {payload}) {
+      const {userId, followersCount}=payload;
+      state.followersCount[userId]= followersCount;
+      // console.log(state.followersCount[userId]);   
+      
+
+    },
+    setToggleFollowingAction(state, { payload }) {
+      // console.log(payload);
+      const {userId, isFollowing }= payload;
+
+      state.followingStatus = {
+        ...state.followingStatus, 
+        [userId]: isFollowing
+      }
+        // console.log(state.followingStatus);    
+    },
+  },
 
   extraReducers: (builder) => {
     builder
@@ -26,24 +46,7 @@ const usersSlice = createSlice({
       });
   },
 
-  reducers: {
-    setFollowersCountAction (state, {payload}) {
-
-      
-      
-
-    },
-    setToggleFollowingAction(state, { payload }) {
-      // console.log(payload);
-      const {userId, isFollowing }= payload;
-
-      state.followingStatus = {
-        ...state.followingStatus, 
-        [userId]: isFollowing
-      }
-        console.log(state.followingStatus);    
-    },
-  },
+  
 });
 
 const persistConfig = {
