@@ -29,6 +29,10 @@ const usersSlice = createSlice({
       }
         // console.log(state.followingStatus);    
     },
+
+    // setFilterAction(state, {payload}) {
+    //   state.filter = payload
+    // }
   },
 
   extraReducers: (builder) => {
@@ -55,6 +59,6 @@ const persistConfig = {
   whitelist: ['users', 'followingStatus', 'followersCount'],
 };
 
-export const {setFollowersCountAction, setToggleFollowingAction} = usersSlice.actions;
+export const {setFollowersCountAction, setToggleFollowingAction, setFilterAction} = usersSlice.actions;
 
 export const usersReducer = persistReducer(persistConfig, usersSlice.reducer);

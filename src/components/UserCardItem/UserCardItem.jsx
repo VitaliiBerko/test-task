@@ -15,37 +15,22 @@ const UserCardItem = ({ user }) => {
   const dispatch = useDispatch();
   const { avatar, tweets, followers, id } = user;
 
-  // const [count, setCount] = useState(0);
-  // const [text, setText] = useState("FOLLOW");
-  const followingStatus = useSelector(
-    // (state) => state.users.folowingStatus[id] ?? false
-    selectFollowingStatud
-  );
+    const followingStatus = useSelector(selectFollowingStatud);
 
   // console.log(followingStatus);
   const isFollowing = followingStatus[id] ?? false;
-  console.log(isFollowing);
+  // console.log(isFollowing);
 
   const followersCount = useSelector(
     (state) => state.users.followersCount[id] ?? followers
   );
 
-  console.log(followersCount);
+  // console.log(followersCount);
 
   const handleOnFollow = () => {
     const updatedFollowersCoutn = isFollowing
       ? followersCount - 1
-      : followersCount + 1 ;
-
-    // let updatedFollowersCoutn = followers;
-
-    // if (isFollowing) {
-    //   updatedFollowersCoutn = followersCount - 1;
-    //   event.target.classList.toggle("active");
-    // } else {
-    //   updatedFollowersCoutn = followersCount + 1;
-    //   event.target.classList.toggle("active");
-    // }
+      : followersCount + 1;
 
     dispatch(
       setFollowersCountAction({
@@ -71,7 +56,10 @@ const UserCardItem = ({ user }) => {
           {followersCount.toLocaleString("en-US")} FOLLOWERS
         </li>
 
-        <button onClick={handleOnFollow} className={ isFollowing ? "button active" : "button"}>
+        <button
+          onClick={handleOnFollow}
+          className={isFollowing ? "button active" : "button"}
+        >
           {isFollowing ? "Following" : "Follow"}
         </button>
       </ul>
