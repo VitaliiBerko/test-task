@@ -1,36 +1,32 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { usersReducer } from "./usersSlice";
 import {
-    persistStore,
-    FLUSH,
-    REHYDRATE,
-    PAUSE,
-    PERSIST,
-    PURGE,
-    REGISTER,
-  } from 'redux-persist';
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
 import { userInitState } from "./user.init-state";
 
 const initState = {
-  users: userInitState
-}
-
+  users: userInitState,
+};
 
 export const store = configureStore({
   preloadedState: initState,
-    reducer: {
-        users: usersReducer,
-        // filter: filterReducer,
-    },
-    devTools: true,
-  middleware: getDefaultMiddleware =>
+  reducer: {
+    users: usersReducer,
+  },
+  devTools: true,
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
+});
 
-
-})
-
-export const persistor = persistStore(store)
+export const persistor = persistStore(store);

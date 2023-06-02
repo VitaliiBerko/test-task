@@ -7,11 +7,11 @@ Web application - User cards
 Web application - User cards
 Preparation
 
-    Clone the repository with the command git clone https://github.com/dimadimaya/tweets-cards2.0
+    Clone the repository with the command git clone https://github.com/VitaliiBerko/test-task
     Make sure you have the LTS version of Node.js installed on your computer. Download and install her if necessary.
     Set the basic dependencies of the project as a command npm install.
-    To start, execute the command npm start.
-    Go to the address in the browser http://localhost:3000/tweets-cards2.0
+    To start, execute the command npm run dev
+    Go to the address in the browser http://localhost:5173/test-task
 
 To create the front-end part of the Web application, the following were used:
 
@@ -39,46 +39,4 @@ The main functionality of the application:
     '/tweets’ - page displaying tweets. The tweets page has a Back button that takes you to the main page. If the user logged in for non-existent route, he gets to a page with an error and a button to return to the main (home) page.
 
     User filtering is implemented in the application. This is a Dropdown with 3 options: show all, follow, followings show all - show all tweets. follow - show tweets with follow status. followings - show tweets with following status
-
-About
-dimadimaya.github.io/tweets-cards2.0/
-Resources
-Readme
-Stars
-0 stars
-Watchers
-2 watching
-Forks
-0 forks
-Report repository
-Releases
-No releases published
-Packages
-No packages published
-Environments 1
-
-    github-pages Active
-
-Languages
-
-JavaScript 52.0%
-CSS 25.0%
-
-    HTML 23.0% 
-
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-
-    Terms
-    Privacy
-    Security
-    Status
-    Docs
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
 

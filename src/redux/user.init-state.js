@@ -3,7 +3,7 @@ import { STATUS } from "../constans/status";
 
 
 export const userInitState ={
-    users: null,
+    users: [],
     status: STATUS.idle,
     filter: FILTER.showAll,
     followingStatus: {},

@@ -13,6 +13,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
+    "clsx": "^1.2.1",
     "gh-pages": "^5.0.0",
     "notiflix": "^3.2.6",
     "prop-types": "^15.8.1",

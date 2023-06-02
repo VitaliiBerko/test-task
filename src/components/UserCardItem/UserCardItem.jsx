@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
-import "./UserCardItemStyles.scss";
-// import styles from "./UserCardItemStyles.scss?inline"
+import styles from "./UserCardItem.module.scss"
 import logo from "../../images/Logo.svg";
 import avatarImg from "../../images/Hansel.png";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,24 +8,21 @@ import {
   setToggleFollowingAction,
 } from "../../redux/usersSlice";
 import { selectFollowingStatud } from "../../redux/usersSelector";
-// import { selectStatus } from "../../redux/usersSelector";
+import clsx from "clsx";
+
 
 const UserCardItem = ({ user }) => {
   const dispatch = useDispatch();
   const { avatar, tweets, followers, id } = user;
 
-    const followingStatus = useSelector(selectFollowingStatud);
-
-  // console.log(followingStatus);
-  const isFollowing = followingStatus[id] ?? false;
-  // console.log(isFollowing);
+  const followingStatus = useSelector(selectFollowingStatud);
+  
+  const isFollowing = followingStatus[id] ?? false;  
 
   const followersCount = useSelector(
     (state) => state.users.followersCount[id] ?? followers
   );
-
-  // console.log(followersCount);
-
+  
   const handleOnFollow = () => {
     const updatedFollowersCoutn = isFollowing
       ? followersCount - 1
@@ -45,20 +41,20 @@ const UserCardItem = ({ user }) => {
   };
 
   return (
-    <li className="user-card">
-      <img src={logo} alt="Logo" className="logoGO" />
+    <li className={styles.card}>
+      <img src={logo} alt="Logo" className={styles.logoGO} />
 
-      <img src={avatar || avatarImg} alt="User avatar" className="avatar" />
+      <img src={avatar || avatarImg} alt="User avatar" className={styles.avatar} />
 
-      <ul className="description">
-        <li className="text mrBtn16">{tweets} TWEETS</li>
-        <li className="text mrBtn26">
+      <ul className={styles.description}>
+        <li className={clsx(styles.text, styles.mrBtn16)}>{tweets} TWEETS</li>
+        <li className={clsx(styles.text, styles.mrBtn26)}>
           {followersCount.toLocaleString("en-US")} FOLLOWERS
         </li>
 
         <button
           onClick={handleOnFollow}
-          className={isFollowing ? "button active" : "button"}
+          className={isFollowing ? clsx(styles.button, styles.active) : clsx(styles.button)}
         >
           {isFollowing ? "Following" : "Follow"}
         </button>

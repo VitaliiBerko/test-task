@@ -1,11 +1,11 @@
-.user-card {
+.card {
   position: relative;
   background-image: url(../../images/picture@1.png),
     url(../../images/Ellipse1.png), url(../../images/Rectangle.png),
     var(--primery-background-img);
   background-position: top 26px left 36px, top 178px left 150px,
     top 214px left 0px, center;
-  background-size: 308px 168px 80px 80px, 308px 8px cover;
+  // background-size: 308px 168px, 80px 80px, 380px 8px ;
   background-repeat: no-repeat;
 
   width: 380px;
@@ -48,11 +48,6 @@
   margin-bottom: 35px;
 }
 
-// .rectangle {
-//   position: absolute;
-//   top: 0;
-//   right: 100%;
-// }
 .ellips {
   position: absolute;
   top: 0;

@@ -1,5 +1,3 @@
-
-
 import { UserCardList } from "../../components/UserCardList/UserCardList";
 
 const Tweets = () => {

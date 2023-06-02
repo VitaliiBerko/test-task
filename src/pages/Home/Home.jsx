@@ -1,11 +1,11 @@
-import "./Home.scss";
+import styles from "./Home.module.scss";
 
 const Home = () => {
   return (
     <>
       <div className="container">
-        <div className="wrapperText">
-          <h1 className="title">Welcome to home page!</h1>
+        <div className={styles.wrapper}>
+          <h1 className={styles.title}>Welcome to home page!</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo sit
             consectetur quisquam tempora, nihil eaque voluptates explicabo,

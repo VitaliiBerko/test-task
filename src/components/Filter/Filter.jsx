@@ -1,4 +1,5 @@
 import { FILTER } from "../../constans/filter.constans";
+import styles from "./Filter.module.scss"
 import PropTypes from "prop-types";
 
 export const Filter = ({ setSelectedSortOption }) => {
@@ -8,7 +9,7 @@ export const Filter = ({ setSelectedSortOption }) => {
  
 
   return (
-    <div className="wrapper-filter">
+    <div className={styles.wrapper}>
       <label htmlFor="sort-select">Filter:</label>
       <select name="sort" id="sort-select" onChange={handleOnChange}>
         {Object.entries(FILTER).map(([id, value]) => (
@@ -16,10 +17,7 @@ export const Filter = ({ setSelectedSortOption }) => {
             {value}
           </option>
         ))}
-
-        {/* <option value="Show all">Show all</option>
-            <option value="Follow">Follow</option>
-            <option value="Followings">Followings</option> */}
+        
       </select>
     </div>
   );
